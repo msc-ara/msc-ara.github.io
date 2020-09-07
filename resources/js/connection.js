@@ -37,8 +37,6 @@ async function getPostByCode(code) {
 async function addComment(postCode, commentText) {
 
     let comment = PostComment(null, commentText);
-
-    console.info("comment: " + JSON.stringify(comment));
     const URL_FINAL = URL_BASE_COMMENT + "/post/" + postCode + "/";
     let response = await fetch(URL_FINAL, {
         method: "POST",
