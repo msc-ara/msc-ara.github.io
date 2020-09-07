@@ -5,21 +5,11 @@
     <title>Title</title>
 </head>
 <body>
-<h1>POST</h1>
+<h1>Create a Post</h1>
 </body>
 
 <script type="application/javascript" src="../resources/js/model.js"></script>
 <script type="application/javascript" src="../resources/js/connection.js"></script>
 <script type="application/javascript" src="../resources/js/register.js"></script>
-
-<script type="application/javascript">
-
-    const urlParams = new URLSearchParams(window.location.search);
-    let code = urlParams.get("code");
-    let post = getPostByCode(code);
-
-    console.info("post >>>> " + post);
-
-</script>
 
 </html>

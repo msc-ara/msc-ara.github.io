@@ -31,29 +31,14 @@ async function getPostByCode(code) {
         },
     });
 
-    const json = JSON.stringify(await response.json());
-    console.info("response.body: " + json);
-    console.info("response.status: " + response.status);
-
-    if (response.status == 200) {
-
-        const parse = JSON.parse(json);
-        let post = Post(parse.Code, parse.Title, parse.ActiveDays, parse.Comments);
-        console.info("parse: " + JSON.stringify(parse));
-        console.info("post: " + JSON.stringify(post));
-
-        return post;
-    }
-
-    return "";
+    return response;
 }
 
 async function addComment(postCode, commentText) {
 
-    let form = document.getElementById("formAddComment");
-    let comment = Comment(null, commentText);
-    let post = Post("", form.title.value , form.activeDays.value , null);
+    let comment = PostComment(null, commentText);
 
+    console.info("comment: " + JSON.stringify(comment));
     const URL_FINAL = URL_BASE_COMMENT + "/post/" + postCode + "/";
     let response = await fetch(URL_FINAL, {
         method: "POST",
