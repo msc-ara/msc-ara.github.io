@@ -1,33 +1,36 @@
 
 let URL_BASE = "https://araapi.herokuapp.com/ara-api/";
-const host = window.location.protocol + "//" + window.location.hostname + ":" + window.location.port;
+let host = window.location.protocol + "//" + window.location.hostname;
 
-function savePost () {
+async function savePost () {
 
     let form = document.getElementById("formRegister");
-    console.info("form.title: " + form.title.value + "; form.activeDays: " + form.activeDays.value);
     let post = Post("", form.title.value , form.activeDays.value , null);
 
-    console.info("host: " + host);
     const URL_FINAL = URL_BASE + "post/";
-    fetch(URL_FINAL, {
+    let response = await fetch(URL_FINAL, {
         method: "POST",
         headers: {
-            'Content-Type': 'application/json;charset=utf-8',
+            'Content-Type': 'text/plain;charset=utf-8',
         },
         body: JSON.stringify(post),
-    }).then(function(response) {
-        return response.body;
-    }).then(function(body) {
-        // let objectURL = URL.createObjectURL(body);
-        alert(body);
 
-    });;
+    });
+
+    const json = JSON.stringify(await response.json());
+    console.info("response.body: " + json);
+
+    if (response.status == 201) {
+        const parse = JSON.parse(json);
+        if (window.location.hostname == "localhost") {
+            host += ":" + window.location.port;
+        }
+        window.location.href = host + "/resources/post.html?code=" + parse.code;
+    }
 }
 
 document.getElementById("submitFormRegister")
     .addEventListener("click", function(){
 
-        // alert("submitFormRegister click");
     savePost();
 });
