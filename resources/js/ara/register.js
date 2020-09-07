@@ -1,4 +1,6 @@
 
+const countToSearch = 10;
+
 async function submitFormRegister () {
 
     const form = document.getElementById("formRegister");
@@ -20,24 +22,23 @@ async function submitFormRegister () {
 
 }
 
-
 loadIndex();
 async function loadIndex () {
 
-    const response = await getPostsPagination(0, 100);
+    const response = await getPostsPagination(0, countToSearch);
 
     const json = JSON.stringify(await response.json());
 
     if (response.status == 200) {
 
         const parse = JSON.parse(json);
-        await loadPosts(parse, "idPosts");
+        await loadPosts(0, parse, "idPosts");
 
     }
 
 }
 
-async function loadPosts (posts, idOutPutInnerHTML) {
+async function loadPosts (page, posts, idOutPutInnerHTML) {
 
     // console.info("posts: " + JSON.stringify(posts));
 
@@ -63,8 +64,43 @@ async function loadPosts (posts, idOutPutInnerHTML) {
         `)
 
     }
-    // console.info("output: " + output);
-    document.getElementById(idOutPutInnerHTML).innerHTML = output;
+
+    (output += `
+        <div id="idLoadMoreDiv" class="idLoadMoreDiv">
+            <div class="form-group col-12">
+                <button class="btn btn-primary btn-block" id="idLoadMore" onclick="loadMore(this.id, ${page})">
+                    LOAD MORE
+                </button>
+            </div>
+        </div>
+    `)
+        // console.info("output: " + output);
+
+    let idLoadMoreDiv = document.getElementsByClassName("idLoadMoreDiv");
+    // console.info("idLoadMoreDiv: " + idLoadMoreDiv);
+    let element = idLoadMoreDiv.item(idLoadMoreDiv.length - 1);
+    // console.info("element: " + element);
+    if (element != null) {
+        element.innerHTML = "";
+        element.innerHTML += output;
+    } else {
+        document.getElementById(idOutPutInnerHTML).innerHTML += output;
+    }
 
 }
 
+async function loadMore(idLoadMore, actualPage) {
+
+    console.info("actualPage: " + actualPage);
+    const page = parseInt(actualPage) + 1;
+    const response = await getPostsPagination(page, countToSearch);
+    const json = JSON.stringify(await response.json());
+
+    if (response.status == 200) {
+
+        const parse = JSON.parse(json);
+        await loadPosts(page, parse, "idLoadMoreDiv");
+
+    }
+
+}
