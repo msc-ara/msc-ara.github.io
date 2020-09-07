@@ -4,10 +4,7 @@ const URL_BASE_POST = URL_BASE + "/post";
 const URL_BASE_COMMENT = URL_BASE + "/comment";
 let host = window.location.protocol + "//" + window.location.hostname;
 
-async function savePost () {
-
-    let form = document.getElementById("formRegister");
-    let post = Post("", form.title.value , form.activeDays.value , null);
+async function savePost (post) {
 
     const URL_FINAL = URL_BASE_POST;
     let response = await fetch(URL_FINAL, {

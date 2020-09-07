@@ -1,9 +1,12 @@
 
 const submitFormRegister = document.getElementById("submitFormRegister");
 if (submitFormRegister != null) {
-    submitFormRegister.addEventListener("click", () =>{
 
-        let response = savePost();
+    submitFormRegister.addEventListener("click", async () =>{
+
+        const form = document.getElementById("formRegister");
+        const post = Post("", form.title.value , form.activeDays.value , null);
+        let response = await savePost(post);
         const json = JSON.stringify(response.json());
         // console.info("response.body: " + json);
 
@@ -17,5 +20,7 @@ if (submitFormRegister != null) {
             window.location.href = host + "/resources/post.html?code=" + parse.Code;
 
         }
+
     });
+
 }

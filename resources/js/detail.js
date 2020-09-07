@@ -1,6 +1,6 @@
 
-load();
-async function load () {
+loadDetail();
+async function loadDetail () {
 
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get("code");
