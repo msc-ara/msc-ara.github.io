@@ -9,10 +9,10 @@ function Post(code, title, activeDays, comments) {
     return newObj;
 }
 
-function Comments (code, description) {
+function Comment (date, description) {
 
     let newObj = new Object();
-    newObj.code = code;
+    newObj.date = date;
     newObj.description = description;
 
     return newObj;
