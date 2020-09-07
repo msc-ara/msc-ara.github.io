@@ -26,15 +26,14 @@ if (submitFormRegister != null) {
     submitFormRegister.addEventListener("click", async () =>{
 
         let form = document.getElementById("formAddComment");
-
-        // console.info("form.comment: " + form.comment.value);
         let response = await addComment(form.postCode.value, form.comment.value);
-        const json = JSON.stringify(await response.json());
+        // const json = JSON.stringify(await response.json());
 
         if (response.status == 201) {
 
             window.location.href = window.location;
 
         }
-    })
+
+    });
 }
