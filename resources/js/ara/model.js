@@ -1,10 +1,16 @@
-function Post(code, title, activeDays, comments) {
+function Post(code, title, activeDays, comments, date) {
 
     let newObj = new Object();
     newObj.code = code;
     newObj.title = title;
-    newObj.activeDays = parseInt(activeDays);
+
+    let days = 0;
+    if (isNumeric(activeDays)) {
+        days = parseInt(activeDays);
+    }
+    newObj.activeDays = days;
     newObj.comments = comments;
+    newObj.date = date;
 
     return newObj;
 }

@@ -57,28 +57,30 @@
     </nav>
     <main role="main" class="flex-shrink-0">
         <div class="container">
-            <div class="row">
-                <div class="col-12"><h1>Create a Post</h1></div>
+            <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+                <h1 class="display-5">ARA WEB</h1>
             </div>
             <form id="formRegister" class="needs-validation" novalidate>
-                <div class="row form-group col-12">
+                <div class="form-group col-12">
                     <label for="idTitle">Title</label>
                     <input type="text" class="form-control" id="idTitle"
                            aria-describedby="idTitleHelp" name="title" required/>
                     <small id="idTitleHelp" class="form-text text-muted">Title For Post.</small>
                 </div>
-                <div class="row form-group col-12">
+                <div class="form-group col-12">
                     <label for="idActiveDays">Active Days</label>
                     <input type="number" step="1" min="1" max="5" maxlength="1" class="form-control" id="idActiveDays"
                            aria-describedby="idActiveDaysHelp" name="activeDays" required/>
                     <small id="idActiveDaysHelp" class="form-text text-muted">How Many Days The Post Will Be Active.</small>
                 </div>
-                <div class="row form-group col-12">
+                <div class="form-group col-12">
                     <button class="btn btn-primary btn-block" id="submitFormRegister">
                         Create Post
                     </button>
                 </div>
             </form>
+
+            <div id="idPosts"></div>
         </div>
     </main>
 </body>

@@ -31,6 +31,19 @@ async function getPostByCode(code) {
     return response;
 }
 
+async function getPostsPagination (page, count) {
+
+    const URL_FINAL = URL_BASE_POST + "/" + page + "/" + count + "/";
+    let response = await fetch(URL_FINAL, {
+        method: "GET",
+        headers: {
+            'Content-Type': 'text/plain;charset=utf-8',
+        },
+    });
+
+    return response
+}
+
 async function addComment(postCode, commentText) {
 
     let comment = PostComment(null, commentText);
