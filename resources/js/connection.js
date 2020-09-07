@@ -48,3 +48,16 @@ async function addComment(postCode, commentText) {
 
     return response;
 }
+
+async function deleteComment(postCode, commentID) {
+
+    const URL_FINAL = URL_BASE_COMMENT + "/" + commentID + "/post/+ " + postCode + "/";
+    let response = await fetch(URL_FINAL, {
+        method: "DELETE",
+        headers: {
+            'Content-Type': 'text/plain;charset=utf-8',
+        },
+    });
+
+    return response;
+}
