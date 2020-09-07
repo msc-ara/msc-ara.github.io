@@ -30,7 +30,7 @@ async function loadCommentsFromPost (post) {
     let output = "";
     for (let obj in post.comments) {
 
-        let postComment = PostComment(post.comments[obj].Date, post.comments[obj].Comment);
+        let postComment = PostComment(new Date(post.comments[obj].Date), post.comments[obj].Comment);
         (output += `
             <div class="row form-group">
                 <div class="col-12">
