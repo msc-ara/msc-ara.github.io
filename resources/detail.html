@@ -1,23 +1,174 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>ARA WEB</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.0.1">
+
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- CSS Project-->
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="css/boostrap4/offcanvas.css"/>
+    <link rel="stylesheet" href="css/boostrap4/sticky-footer.css"/>
 </head>
-<body>
-<h1>Post <span id="idPostCode"/></h1>
-<h3> <span id="idPostTitle"/></h3>
 
-<form id="formAddComment">
-    <input name="postCode" id="idPostCodeForm"/>
-    <textarea name="comment"></textarea>
-    <button type="button" id="submitFormAddComment">Comment</button>
-</form>
+<body class="d-flex flex-column h-100">
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+    <a class="navbar-brand mr-auto mr-lg-0" href="#">ARA WEB</a>
+    <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
+    <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/user/v1">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <!--                <li class="nav-item">-->
+            <!--                    <a class="nav-link" href="/ticker/v1/create/">Ticker</a>-->
+            <!--                </li>-->
+            <!--                <li class="nav-item">-->
+            <!--                    <a class="nav-link" href="/user/v1/logout">Logout</a>-->
+            <!--                </li>-->
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+<main role="main" class="flex-shrink-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12"><h2><span id="idPostCode"/></h2></div>
+        </div>
+        <div class="row">
+            <div class="col-12"><h3> <span id="idPostTitle"/></h3></div>
+        </div>
+        <form id="formAddComment" class="needs-validation" novalidate>
+            <input type="hidden" name="postCode" id="idPostCodeForm"/>
+            <div class="form-group col-12">
+                <label for="idComment">Comment</label>
+                <textarea name="comment" class="form-control" id="idComment"
+                          aria-describedby="idCommentHelp" required></textarea>
+                <small id="idCommentHelp" class="form-text text-muted">Comment A Post.</small>
+            </div>
+            <div class=" form-group col-12">
+                <button class="btn btn-primary btn-block" id="submitFormAddComment">
+                    Comment
+                </button>
+            </div>
+        </form>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+<!--                        <h5 class="card-title">Special title treatment</h5>-->
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <small class="text-muted">2 days ago</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
 </body>
+<footer class="footer mt-auto py-3">
+    <div class="container">
+        <small class="text-muted">@msc by ms. v1</small>
+    </div>
+</footer>
 
-<script type="application/javascript" src="../resources/js/model.js"></script>
-<script type="application/javascript" src="../resources/js/connection.js"></script>
-<script type="application/javascript" src="../resources/js/detail.js"></script>
+<!-- START BOOTSTRAP JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+<script>window.jQuery || document.write('<script src="docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+
+<script src="docs/4.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd"
+        crossorigin="anonymous"></script>
+
+<script src="js/bootstrap4/offcanvas.js"></script>
+
+<script type="application/javascript">
+    $(function () {
+        $('[data-toggle="popover"]').popover();
+    });
+
+    $(function () {
+        $('.example-popover').popover({
+            container: 'body'
+        });
+    });
+
+    $('.popover-dismiss').popover({
+        trigger: 'focus'
+    });
+
+    $('.collapse').collapse();
+
+</script>
+<script type="application/javascript" src="js/ara/model.js"></script>
+<script type="application/javascript" src="js/ara/connection.js"></script>
+<script type="application/javascript" src="js/ara/detail.js"></script>
+<script type="application/javascript">
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            let forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            let validation = Array.prototype.filter.call(forms, function(form) {
+
+                form.addEventListener('submit', function(event) {
+                    // console.log("checkValidity: " + form.checkValidity());
+                    event.preventDefault();
+                    event.stopPropagation();
+
+                    if (form.checkValidity() === true) {
+                        submitFormAddComment();
+                    }
+
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
 
 </html>
