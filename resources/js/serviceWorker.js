@@ -1,6 +1,8 @@
 const staticCacheName = "ara-web-v1.0"
 const assets = [
     "/",
+    "/index.html",
+    "/resources/app.js",
 ]
 
 self.addEventListener("install", installEvent => {
@@ -22,7 +24,7 @@ self.addEventListener("install", installEvent => {
 // Cache Strategy
 // https://blog.bitsrc.io/5-service-worker-caching-strategies-for-your-next-pwa-app-58539f156f52
 
-// Cache First, then Network Strategy
+// Cache First, then Network - Strategy
 // self.addEventListener('fetch', function (event) {
 //     event.respondWith(
 //         caches.open(cacheName)
@@ -42,7 +44,7 @@ self.addEventListener("install", installEvent => {
 //     )
 // });
 
-// Network First, then Cache Strategy
+// Network First, then Cache - Strategy
 self.addEventListener('fetch', function(event) {
     event.respondWith(
         fetch(event.request).catch(function() {
@@ -51,7 +53,7 @@ self.addEventListener('fetch', function(event) {
     )
 })
 
-// Cache Only Strategy
+// Cache Only - Strategy
 // self.addEventListener('fetch', function (event) {
 //     event.respondWith(
 //         caches.open(cacheName).then(function(cache) {
@@ -62,7 +64,7 @@ self.addEventListener('fetch', function(event) {
 //     )
 // })
 
-// Network Only Strategy
+// Network Only - Strategy
 // self.addEventListener('fetch', function (event) {
 //     event.respondWith(
 //         fetch(event.request).then(function(networkResponse) {
