@@ -8,7 +8,7 @@ const assets = [
 self.addEventListener("install", installEvent => {
     installEvent.waitUntil(
         caches.open(staticCacheName).then(cache => {
-            cache.addAll(assets)
+            cache.addAll(assets);
         })
     )
 });
@@ -48,7 +48,7 @@ self.addEventListener("install", installEvent => {
 self.addEventListener('fetch', function(event) {
     event.respondWith(
         fetch(event.request).catch(function() {
-            return caches.match(event.request)
+            return caches.match(event.request);
         })
     )
 })
