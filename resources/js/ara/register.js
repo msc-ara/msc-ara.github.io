@@ -49,18 +49,20 @@ async function loadPosts (page, posts, idOutPutInnerHTML) {
         // console.info("<<<<<<<posts>>>>>>>: \n" + JSON.stringify(post));
 
         (output += `
-            <div class="row form-group">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="card-text">${post.title}</p>
-                        </div>
-                        <div class="card-footer text-muted">
-                            <small class="text-muted">${post.date.toDateString()}</small>
+            <a href="detail.html?code=${post.code}">
+                <div class="row form-group">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-text">${post.title}</p>
+                            </div>
+                            <div class="card-footer text-muted">
+                                <small class="text-muted">${post.date.toDateString()}</small>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         `)
 
     }
