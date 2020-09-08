@@ -57,7 +57,7 @@ async function submitFormAddComment () {
 
 async function loadCommentsFromPost (post) {
 
-    console.info("post.comments: " + JSON.stringify(post.comments));
+    // console.info("post.comments: " + JSON.stringify(post.comments));
 
     let output = "";
     for (let obj in post.comments) {
