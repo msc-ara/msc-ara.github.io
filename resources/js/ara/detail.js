@@ -71,7 +71,7 @@ async function loadCommentsFromPost (post) {
                             <p class="card-text">${postComment.comment}</p>
                         </div>
                         <div class="card-footer text-muted">
-                            <small class="text-muted">${postComment.date}</small>
+                            <small class="text-muted">${postComment.date.toDateString()}</small>
                         </div>
                     </div>
                 </div>
