@@ -1,8 +1,8 @@
-const staticCacheName = "ara-web-v1.0"
+const staticCacheName = "ara-web-v1.1"
 const assets = [
     "/",
     "/index.html",
-    "/resources/app.js",
+    "/resources/js/app.js",
 ]
 
 self.addEventListener("install", installEvent => {
