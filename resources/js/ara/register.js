@@ -59,8 +59,7 @@ async function loadPosts (page, posts, idOutPutInnerHTML) {
                             </div>
                             <div class="card-footer text-muted">
                                 <small class="text-muted">
-                                    Date: ${post.date.toDateString()} 
-                                    Number of Comments: ${post.commentsLenght()} 
+                                    Comments: ${post.commentsLenght()} - Date: ${post.date.toDateString()} 
                                 </small>
                             </div>
                         </div>
