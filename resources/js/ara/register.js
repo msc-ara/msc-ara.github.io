@@ -54,10 +54,14 @@ async function loadPosts (page, posts, idOutPutInnerHTML) {
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
+                                <h5 class="card-title">${post.code}</h5>
                                 <p class="card-text">${post.title}</p>
                             </div>
                             <div class="card-footer text-muted">
-                                <small class="text-muted"> Comments: ${post.commentsLenght()} Date: ${post.date.toDateString()}</small>
+                                <small class="text-muted">
+                                    Date: ${post.date.toDateString()} 
+                                    Number of Comments: ${post.commentsLenght()} 
+                                </small>
                             </div>
                         </div>
                     </div>
