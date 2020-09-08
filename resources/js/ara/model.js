@@ -12,6 +12,18 @@ function Post(code, title, activeDays, comments, date) {
     newObj.comments = comments;
     newObj.date = date;
 
+    newObj.commentsLenght = () => {
+
+        let count = 0;
+        if (newObj.comments != null) {
+            for (let obj in newObj.comments) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
     return newObj;
 }
 
