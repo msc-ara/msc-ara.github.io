@@ -1,6 +1,7 @@
 
 let phrasesMap = new Map(
     [
+        [0, new Phrase("#FFFFFF", "#244c90", "I'm drinking a chai...")],
         [1, new Phrase("#CB3535", "#000000", "Flamengo will be brasileirao 2020 champion?")],
         [2, new Phrase("#358fcb", "#FFFFFF", "How about travel to Paris?")],
         [3, new Phrase("#ffffff", "#000000", "I wanna change my computer... any sugestion?")],
@@ -15,7 +16,6 @@ function loadIndex() {
     const howManyRandomNumber = phrasesMap.size + 1;
     // console.info("howManyRandomNumber: " + howManyRandomNumber);
     let index = Math.floor(Math.random() * howManyRandomNumber);
-    if (index == 0) {index++;}
     // console.info("index: " + index);
 
     let phrase = phrasesMap.get(index);
