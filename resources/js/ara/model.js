@@ -35,3 +35,13 @@ function PostComment (date, description) {
 
     return newObj;
 }
+
+function Phrase (backgroundColor, fontColor, description) {
+
+    let newObj = new Object();
+    newObj.backgroundColor = backgroundColor;
+    newObj.fontColor = fontColor;
+    newObj.description = description;
+
+    return newObj;
+}
