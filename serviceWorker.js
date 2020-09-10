@@ -58,7 +58,7 @@ self.addEventListener('activate', (evt) => {
 // Cache First, then Network - Strategy
 self.addEventListener('fetch', function (event) {
     event.respondWith(
-        caches.open(cacheName)
+        caches.open(CACHE_NAME)
             .then(function(cache) {
                 cache.match(event.request)
                     .then( function(cacheResponse) {
