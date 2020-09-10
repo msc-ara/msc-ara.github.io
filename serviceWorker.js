@@ -27,23 +27,6 @@ self.addEventListener("install", installEvent => {
     )
 });
 
-self.addEventListener('activate', (evt) => {
-    console.log('[ServiceWorker] Activate');
-    // CODELAB: Remove previous cached data from disk.
-// CODELAB: Remove previous cached data from disk.
-    evt.waitUntil(
-        caches.keys().then((keyList) => {
-            return Promise.all(keyList.map((key) => {
-                if (key !== CACHE_NAME) {
-                    console.log('[ServiceWorker] Removing old cache', key);
-                    return caches.delete(key);
-                }
-            }));
-        })
-    );
-    self.clients.claim();
-});
-
 // self.addEventListener("fetch", fetchEvent => {
 //     fetchEvent.respondWith(
 //         caches.match(fetchEvent.request).then(res => {
@@ -103,3 +86,20 @@ self.addEventListener('fetch', function (event) {
 //         })
 //     )
 // })
+
+self.addEventListener('activate', (evt) => {
+    console.log('[ServiceWorker] Activate');
+    // CODELAB: Remove previous cached data from disk.
+// CODELAB: Remove previous cached data from disk.
+    evt.waitUntil(
+        caches.keys().then((keyList) => {
+            return Promise.all(keyList.map((key) => {
+                if (key !== CACHE_NAME) {
+                    console.log('[ServiceWorker] Removing old cache', key);
+                    return caches.delete(key);
+                }
+            }));
+        })
+    );
+    self.clients.claim();
+});
