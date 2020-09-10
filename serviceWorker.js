@@ -1,8 +1,8 @@
-const CACHE_NAME = "ara-web-v1.3"
+const CACHE_NAME = "ara-web-v1.4"
 const assets = [
     "/",
     "/index.html",
-    "/resources/js/app.js",
+    "/app.js",
     "/resources/js/bootstrap4/offcanvas.js",
     "/resources/images/icon/apple-icon-57x57.png",
     "/resources/images/icon/apple-icon-60x60.png",
