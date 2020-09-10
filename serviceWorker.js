@@ -39,33 +39,33 @@ self.addEventListener("install", installEvent => {
 // https://blog.bitsrc.io/5-service-worker-caching-strategies-for-your-next-pwa-app-58539f156f52
 
 // Cache First, then Network - Strategy
-self.addEventListener('fetch', function (event) {
-    event.respondWith(
-        caches.open(CACHE_NAME)
-            .then(function(cache) {
-                cache.match(event.request)
-                    .then( function(cacheResponse) {
-                        if(cacheResponse)
-                            return cacheResponse
-                        else
-                            return fetch(event.request)
-                                .then(function(networkResponse) {
-                                    cache.put(event.request, networkResponse.clone())
-                                    return networkResponse
-                                })
-                    })
-            })
-    )
-});
+// self.addEventListener('fetch', function (event) {
+//     event.respondWith(
+//         caches.open(CACHE_NAME)
+//             .then(function(cache) {
+//                 cache.match(event.request)
+//                     .then( function(cacheResponse) {
+//                         if(cacheResponse)
+//                             return cacheResponse
+//                         else
+//                             return fetch(event.request)
+//                                 .then(function(networkResponse) {
+//                                     cache.put(event.request, networkResponse.clone())
+//                                     return networkResponse
+//                                 })
+//                     })
+//             })
+//     )
+// });
 
 // Network First, then Cache - Strategy
-// self.addEventListener('fetch', function(event) {
-//     event.respondWith(
-//         fetch(event.request).catch(function() {
-//             return caches.match(event.request);
-//         })
-//     )
-// })
+self.addEventListener('fetch', function(event) {
+    event.respondWith(
+        fetch(event.request).catch(function() {
+            return caches.match(event.request);
+        })
+    )
+})
 
 // Cache Only - Strategy
 // self.addEventListener('fetch', function (event) {
@@ -90,7 +90,6 @@ self.addEventListener('fetch', function (event) {
 self.addEventListener('activate', (evt) => {
     console.log('[ServiceWorker] Activate');
     // CODELAB: Remove previous cached data from disk.
-// CODELAB: Remove previous cached data from disk.
     evt.waitUntil(
         caches.keys().then((keyList) => {
             return Promise.all(keyList.map((key) => {
