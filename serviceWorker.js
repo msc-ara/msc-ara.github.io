@@ -1,4 +1,4 @@
-const CACHE_NAME = "ara-web-v1.4"
+const CACHE_NAME = "ara-web-v1.5"
 const assets = [
     "/",
     "/index.html",
