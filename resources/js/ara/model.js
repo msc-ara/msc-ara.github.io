@@ -11,8 +11,10 @@ function Post(code, title, activeDays, comments, date) {
     newObj.activeDays = days;
     newObj.comments = comments;
     newObj.date = date;
+    newObj.expiredDay = new Date(newObj.date);
+    newObj.expiredDay.setDate(newObj.expiredDay.getDate() + newObj.activeDays)
 
-    newObj.commentsLenght = () => {
+    newObj.commentsLength = () => {
 
         let count = 0;
         if (newObj.comments != null) {

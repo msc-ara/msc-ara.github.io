@@ -16,6 +16,7 @@ async function loadDetail () {
         document.getElementById("idPostCode").innerHTML = post.code;
         document.getElementById("idPostCodeForm").value = post.code;
         document.getElementById("idPostTitle").innerHTML = post.title;
+        document.getElementById("idPostExpire").innerHTML = post.expiredDay.toDateString();
 
         await loadCommentsFromPost(post);
 
