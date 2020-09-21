@@ -22,6 +22,8 @@ async function loadDetail () {
 
     }
 
+    loadLanguage().loadDetails();
+
 }
 
 // const submitFormRegister = document.getElementById("submitFormAddComment");

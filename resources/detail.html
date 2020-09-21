@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="h-100" xmlns:th="http://www.w3.org/1999/xhtml">
+<html class="h-100" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>ARA WEB</title>
@@ -85,14 +85,16 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <small>Expire: <span id="idPostExpire"/></small>
+                <small>
+                    <span id="detailTextExpireAt"></span>: <span id="idPostExpire"></span>
+                </small>
             </div>
         </div>
         <div class="row">
-            <div class="col-12"><h2><span id="idPostCode"/></h2></div>
+            <div class="col-12"><h2><span id="idPostCode"></span></h2></div>
         </div>
         <div class="row">
-            <div class="col-12"> <span id="idPostTitle"/></div>
+            <div class="col-12"> <span id="idPostTitle"></span></div>
         </div>
         <form id="formAddComment" class="needs-validation" novalidate>
             <input type="hidden" name="postCode" id="idPostCodeForm"/>
@@ -102,11 +104,13 @@
 <!--                <label for="idComment">Comment</label>-->
                 <textarea name="comment" class="form-control" id="idComment"
                           aria-describedby="idCommentHelp" required></textarea>
-                <small id="idCommentHelp" class="form-text text-muted">Write A Comment For This Post.</small>
+                <small id="idCommentHelp" class="form-text text-muted">
+                    <span id="detailTextSmallCommentPost"></span>
+                </small>
             </div>
             <div class=" form-group col-12">
                 <button class="btn btn-primary btn-block" id="submitFormAddComment">
-                    Comment
+                    <span id="detailButtonCommentPost"></span>
                 </button>
             </div>
         </form>
@@ -162,6 +166,7 @@
 <script type="application/javascript" src="/app.js"></script>
 <script type="application/javascript" src="js/ara/util.js"></script>
 <script type="application/javascript" src="js/ara/model.js"></script>
+<script type="application/javascript" src="js/ara/languages.js"></script>
 <script type="application/javascript" src="js/ara/connection.js"></script>
 <script type="application/javascript" src="js/ara/detail.js"></script>
 <script type="application/javascript">

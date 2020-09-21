@@ -36,7 +36,7 @@ async function loadIndex () {
         await loadPosts(0, parse, "idPosts");
 
     }
-    loadLanguage();
+    loadLanguage().loadHome();
 
 }
 
