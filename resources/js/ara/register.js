@@ -32,9 +32,11 @@ async function loadIndex () {
     if (response.status == 200) {
 
         const parse = JSON.parse(json);
+
         await loadPosts(0, parse, "idPosts");
 
     }
+    loadLanguage();
 
 }
 
@@ -59,7 +61,9 @@ async function loadPosts (page, posts, idOutPutInnerHTML) {
                             </div>
                             <div class="card-footer text-muted">
                                 <small class="text-muted">
-                                    Comments: ${post.commentsLength()} - Date: ${post.date.toDateString()} 
+                                    <span id="homeTextCardCommentsCount"></span>
+                                    : ${post.commentsLength()} -
+                                    <span id="homeTextCardDateCreatePost"></span>: ${post.date.toDateString()} 
                                 </small>
                             </div>
                         </div>
@@ -74,7 +78,7 @@ async function loadPosts (page, posts, idOutPutInnerHTML) {
         <div id="idLoadMoreDiv" class="idLoadMoreDiv">
             <div class="form-group col-12">
                 <button class="btn btn-primary btn-block" id="idLoadMore" onclick="loadMore(this.id, ${page})">
-                    LOAD MORE
+                    <span id="homeButtonLoadMorePost"></span>
                 </button>
             </div>
         </div>

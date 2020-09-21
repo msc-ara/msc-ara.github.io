@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="h-100" xmlns:th="http://www.w3.org/1999/xhtml">
+<html class="h-100" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>ARA WEB</title>
@@ -83,28 +83,30 @@
     <main role="main" class="flex-shrink-0">
         <div class="container">
             <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+                <p class="text-muted" id="homeTextPresentation"></p>
                 <p class="text-muted">
-                    You're in ARA, and so, here you can Ask, Request and Answer anything you want.
-                </p>
-                <p class="text-muted">
-                   <strong> Enjoy, be free... be yourself! </strong>
+                   <strong id="homeTextSubtitle">  </strong>
                 </p>
             </div>
             <form id="formRegister" class="needs-validation" novalidate>
                 <div class="form-group col-12">
                     <textarea class="form-control" id="idTitle" id="idTitle"
                               aria-describedby="idTitleHelp" name="title" required></textarea>
-                    <small id="idTitleHelp" class="form-text text-muted">Write Anything You Want In Your Post.</small>
+                    <small id="idTitleHelp" class="form-text text-muted">
+                        <span id="homeTextSmallPostTitle"></span>
+                    </small>
                 </div>
                 <div class="form-group col-12">
 <!--                    <label for="idActiveDays">Active Days</label>-->
                     <input type="number" step="1" min="1" max="5" maxlength="1" class="form-control" id="idActiveDays"
                            aria-describedby="idActiveDaysHelp" name="activeDays" required/>
-                    <small id="idActiveDaysHelp" class="form-text text-muted">How Many Days The Post Will Be Active.</small>
+                    <small id="idActiveDaysHelp" class="form-text text-muted">
+                        <span id="homeTextSmallPostActiveDays"></span>
+                    </small>
                 </div>
                 <div class="form-group col-12">
                     <button class="btn btn-primary btn-block" id="submitFormRegister">
-                        Create Post
+                        <span id="homeButtonCreatePost"></span>
                     </button>
                 </div>
             </form>
@@ -162,6 +164,7 @@
 <script type="application/javascript" src="js/ara/model.js"></script>
 <script type="application/javascript" src="js/ara/connection.js"></script>
 <script type="application/javascript" src="js/ara/register.js"></script>
+<script type="application/javascript" src="js/ara/languages.js"></script>
 <script type="application/javascript">
     // Example starter JavaScript for disabling form submissions if there are invalid fields
     (function() {
