@@ -115,7 +115,8 @@ async function loadMore(idLoadMore, actualPage) {
     if (response.status == 200) {
 
         const parse = JSON.parse(json);
-        await loadPosts(page, parse, "idLoadMoreDiv");
+        let language = loadLanguage();
+        await loadPosts(page, parse, "idLoadMoreDiv", language.getHome());
 
     }
 
