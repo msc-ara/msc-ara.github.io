@@ -34,18 +34,17 @@ async function loadIndex () {
 
     const json = JSON.stringify(await response.json());
 
+    let language = loadLanguage();
+    language.loadHome();
+
     if (response.status == 200) {
-
         const parse = JSON.parse(json);
-
-        await loadPosts(0, parse, "idPosts");
-
+        await loadPosts(0, parse, "idPosts", language.getHome());
     }
-    loadLanguage().loadHome();
 
 }
 
-async function loadPosts (page, posts, idOutPutInnerHTML) {
+async function loadPosts (page, posts, idOutPutInnerHTML, home) {
 
     // console.info("posts: " + JSON.stringify(posts));
 
@@ -54,9 +53,13 @@ async function loadPosts (page, posts, idOutPutInnerHTML) {
 
         let post = await Post(posts[obj].Code, posts[obj].Title, posts[obj].ActiveDays, posts[obj].Comments, new Date(posts[obj].Date));
         // console.info("<<<<<<<posts>>>>>>>: \n" + JSON.stringify(post));
-
+        let lang = getUrlParam("lang");
+        if (lang.trim().length != 0) {
+            lang = "&lang=" + lang;
+        }
+        const url = `detail.html?code=${post.code}` + lang;
         (output += `
-            <a href="detail.html?code=${post.code}" class="text-decoration-none" style="color: black;" >
+            <a href="${url}" class="text-decoration-none" style="color: black;" >
                 <div class="row form-group">
                     <div class="col-12">
                         <div class="card">
@@ -66,9 +69,8 @@ async function loadPosts (page, posts, idOutPutInnerHTML) {
                             </div>
                             <div class="card-footer text-muted">
                                 <small class="text-muted">
-                                    <span id="homeTextCardCommentsCount"></span>
-                                    : ${post.commentsLength()} -
-                                    <span id="homeTextCardDateCreatePost"></span>: ${post.date.toDateString()} 
+                                    ${home.textCardCommentsCount}: ${post.commentsLength()} -
+                                    ${home.textCardDateCreatePost}: ${post.date.toDateString()} 
                                 </small>
                             </div>
                         </div>
@@ -83,7 +85,7 @@ async function loadPosts (page, posts, idOutPutInnerHTML) {
         <div id="idLoadMoreDiv" class="idLoadMoreDiv">
             <div class="form-group col-12">
                 <button class="btn btn-primary btn-block" id="idLoadMore" onclick="loadMore(this.id, ${page})">
-                    <span id="homeButtonLoadMorePost"></span>
+                    ${home.buttonLoadMorePost}
                 </button>
             </div>
         </div>

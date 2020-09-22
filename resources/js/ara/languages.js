@@ -19,16 +19,21 @@ function Languages(htmlLang, home, detail) {
         document.getElementById("homeTextSmallPostTitle").innerHTML = home.textSmallPostTitle;
         document.getElementById("homeTextSmallPostActiveDays").innerHTML = home.textSmallPostActiveDays;
         document.getElementById("homeButtonCreatePost").innerHTML = home.buttonCreatePost;
-        document.getElementById("homeButtonLoadMorePost").innerHTML = home.buttonLoadMorePost;
-        let element = document.getElementById("homeTextCardCommentsCount");
-        if (element !== 'undefined' && element != null) {
-            element.innerHTML = home.textCardCommentsCount;
-        }
-        element = document.getElementById("homeTextCardDateCreatePost");
-        if (element !== 'undefined' && element != null) {
-            element.innerHTML = home.textCardDateCreatePost;
-        }
+        // document.getElementById("homeButtonLoadMorePost").innerHTML = home.buttonLoadMorePost;
+        // let element = document.getElementById("homeTextCardCommentsCount");
+        // if (element !== 'undefined' && element != null) {
+        //     element.innerHTML = home.textCardCommentsCount;
+        // }
+        // element = document.getElementById("homeTextCardDateCreatePost");
+        // if (element !== 'undefined' && element != null) {
+        //     element.innerHTML = home.textCardDateCreatePost;
+        // }
+
         return;
+    }
+
+    obj.getHome = () => {
+        return obj.home;
     }
 
     obj.loadDetails = () => {
