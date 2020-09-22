@@ -8,7 +8,19 @@ function isNumeric(n) {
 
 function changeLanguage (lang) {
 
+    let code = getUrlParam("code");
+    if (code.trim().length != 0) {
+        code = "&code="+code;
+    }
+    window.location.href = window.location.pathname + "?lang=" + lang + code;
+}
+
+function getUrlParam (key) {
+
     const urlParams = new URLSearchParams(window.location.search);
-    const code = urlParams.get("code");
-    window.location.href = window.location.pathname + "?code=" + code + "&lang=" + lang;
+    key = urlParams.get(key);
+    if (key != null) {
+        return key;
+    }
+    return "";
 }

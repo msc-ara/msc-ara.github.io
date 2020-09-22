@@ -15,8 +15,13 @@ async function submitFormRegister () {
         if (window.location.hostname == "localhost") {
             host += ":" + window.location.port + "/msc-ara.github.io";
         }
+        const urlParams = new URLSearchParams(window.location.search);
+        let lang = getUrlParam("lang");
+        if (lang.trim().length != 0) {
+            lang = "&lang=" + lang;
+        }
 
-        window.location.href = host + "/resources/detail.html?code=" + parse.Code;
+        window.location.href = host + "/resources/detail.html?code=" + parse.Code + lang;
 
     }
 

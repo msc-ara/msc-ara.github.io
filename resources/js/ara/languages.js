@@ -20,9 +20,14 @@ function Languages(htmlLang, home, detail) {
         document.getElementById("homeTextSmallPostActiveDays").innerHTML = home.textSmallPostActiveDays;
         document.getElementById("homeButtonCreatePost").innerHTML = home.buttonCreatePost;
         document.getElementById("homeButtonLoadMorePost").innerHTML = home.buttonLoadMorePost;
-        document.getElementById("homeTextCardCommentsCount").innerHTML = home.textCardCommentsCount;
-        document.getElementById("homeTextCardDateCreatePost").innerHTML = home.textCardDateCreatePost;
-
+        let element = document.getElementById("homeTextCardCommentsCount");
+        if (element !== 'undefined' && element != null) {
+            element.innerHTML = home.textCardCommentsCount;
+        }
+        element = document.getElementById("homeTextCardDateCreatePost");
+        if (element !== 'undefined' && element != null) {
+            element.innerHTML = home.textCardDateCreatePost;
+        }
         return;
     }
 
