@@ -2,6 +2,7 @@
 loadDetail();
 async function loadDetail () {
 
+    loadLanguage().loadDetails();
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get("code");
     const response = await getPostByCode(code);
@@ -21,8 +22,6 @@ async function loadDetail () {
         await loadCommentsFromPost(post);
 
     }
-
-    loadLanguage().loadDetails();
 
 }
 

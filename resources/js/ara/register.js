@@ -30,12 +30,12 @@ async function submitFormRegister () {
 loadIndex();
 async function loadIndex () {
 
+    let language = loadLanguage();
+    language.loadHome();
+
     const response = await getPostsPagination(0, countToSearch);
 
     const json = JSON.stringify(await response.json());
-
-    let language = loadLanguage();
-    language.loadHome();
 
     if (response.status == 200) {
         const parse = JSON.parse(json);
