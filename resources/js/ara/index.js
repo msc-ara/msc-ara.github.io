@@ -1,14 +1,14 @@
 
 let phrasesMap = new Map(
     [
-        [1, new Phrase("#CB3535", "#000000", "Flamengo will be brasileirao 2020 champion?")],
-        [2, new Phrase("#358fcb", "#FFFFFF", "How about travel to Paris?")],
-        [3, new Phrase("#ffffff", "#000000", "I wanna change my computer... any suggestion?")],
-        [4, new Phrase("#CB3535", "#ffffff", "What to drink in Singapore?")],
-        [5, new Phrase("#399024", "#ffffff", "Who will travel this summer and for where?")],
-        [6, new Phrase("#244c90", "#ffffff", "Let's enjoy the night!")],
-        [7, new Phrase("#FFFFFF", "#244c90", "I'm drinking a chai...")],
-        [8, new Phrase("#358fcb", "#FFFFFF", "I wanna surf")],
+        // [1, new Phrase("#CB3535", "#000000", "Flamengo will be brasileirao 2020 champion?")],
+        [1, new Phrase("#358fcb", "#FFFFFF", "How about travel to Paris?")],
+        [2, new Phrase("#ffffff", "#000000", "I wanna change my computer... any suggestion?")],
+        [3, new Phrase("#CB3535", "#ffffff", "What to drink in Singapore?")],
+        [4, new Phrase("#399024", "#ffffff", "Who will travel this summer and for where?")],
+        [5, new Phrase("#244c90", "#ffffff", "Let's enjoy the night!")],
+        [6, new Phrase("#FFFFFF", "#244c90", "I'm drinking a chai...")],
+        [7, new Phrase("#358fcb", "#FFFFFF", "I wanna surf")],
     ]
 );
 
